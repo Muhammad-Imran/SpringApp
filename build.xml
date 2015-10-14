@@ -134,6 +134,22 @@
                  username="${tomcat.manager.username}"
                  password="${tomcat.manager.password}"/>
     </target>
+	
+	<target name="clean" description="Clean output directories">
+	        <delete>
+	            <fileset dir="${build.dir}">
+	                <include name="**/*.class"/>
+	            </fileset>
+	        </delete>
+	</target>
+
+    <target name="undeploy" description="Un-Deploy application">
+        <delete>
+            <fileset dir="${deploy.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </delete>
+    </target>
 
 <!-- End Tomcat tasks -->
 
